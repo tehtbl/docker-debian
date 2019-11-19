@@ -3,10 +3,9 @@ ARG BUILD_DIST=BUILD_DIST
 FROM debian:${BUILD_DIST}
 
 LABEL maintainer="@tehtbl"
-ENV container docker
 
-# Enable apt repositories.
-RUN sed -i 's/# deb/deb/g' /etc/apt/sources.list
+ENV container docker
+ENV DEBIAN_FRONTEND noninteractive
 
 # Enable systemd.
 RUN apt-get update ; \
